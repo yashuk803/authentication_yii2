@@ -7,6 +7,10 @@ use Yii;
 
 class UserSession
 {
+    const COUNT_FAILED = 5;
+    const SECONDS = 60;
+    const MINUTE = 5;
+
     private $session;
 
     public function __construct()
@@ -72,7 +76,7 @@ class UserSession
 
     public function isRound()
     {
-        if ($this->getTimeMinute() > 5) {
+        if ($this->getTimeMinute() > self::MINUTE) {
             $this->delete();
             return true;
         }
@@ -98,7 +102,7 @@ class UserSession
     {
         if($this->getTimer()) {
 
-            return   5*60 - ($this->timeHasPassed()->i * 60 + $this->timeHasPassed()->s);
+            return   self::MINUTE*self::SECONDS - ($this->timeHasPassed()->i * self::SECONDS + $this->timeHasPassed()->s);
         }
         return 0;
 
