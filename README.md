@@ -10,4 +10,15 @@ Yii 2 authentication project
 
 System authentication users.
 
+Installation
+------------
+`$ git clone https://github.com/yashuk803/authentication_yii2.git` 
+clone project.
 
+`$ composer install ` - 
+
+
+Usage
+-----
+
+Test data in `/mysql/bd_users.text`
